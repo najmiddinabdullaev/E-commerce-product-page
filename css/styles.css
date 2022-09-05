@@ -127,13 +127,136 @@ img {
 }
 
 
+/* BUTTON */
+
+.button {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: bold;
+  background-color: var(--accent-color);
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+
+.button--block{
+  display: flex;
+  width: 100%;
+}
+
+.button--wide{
+  min-width: 272px;
+}
+
+.button:hover{
+  background-color: var(--accent-color-hover);
+}
+
+.button:active{
+  transform: translateY(2px);
+}
+
+.button__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 22px 20px 18px;
+  text-align: center;
+}
+
+.button--prepend {
+  margin-right: 16px;
+}
+
+
+/* SHOPPING CARD PRODUCTS */
+
+.shopping-card-products {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.shopping-card-products__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+
+/* ITEM SHOPPING CARD PRODUCTS */
+
+.item-shopping-card-products {
+  display: flex;
+  align-items: flex-start;
+}
+
+.item-shopping-card-products__img {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.item-shopping-card-products__info {
+  flex-grow: 1;
+  width: 100%;
+  margin-right: 18px;
+  overflow: hidden;
+}
+
+.item-shopping-card-products__name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+.item-shopping-card-products__cost {
+}
+
+.item-shopping-card-products__subtotal{
+  color: var(--text-color-dark);
+}
+
+.item-shopping-card-products__remove-button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: #c3cad9;
+  align-self: center;
+  cursor: pointer;
+}
+
+.item-shopping-card-products__remove-button:hover{
+  color: var(--text-color-dark);
+}
+
+.item-shopping-card-products__remove-button:active{
+  opacity: 0.6;
+}
+
+.item-shopping-card-products__remove-icon{
+  display: block;
+  width: 14px;
+  height: 16px;
+}
+
+
 /* SHOPPING-CARD */
 
 .shopping-card {
   display: flex;
   flex-direction: column;
-  min-height: 256px;
   width: 100%;
+  min-height: 256px;
   border-radius: 6px;
   background-color: #fff;
 }
@@ -175,6 +298,10 @@ img {
 
 .shopping-card--empty .shopping-card__content{
   display: none;
+}
+
+.shopping-card__products{
+  margin-bottom: 24px;
 }
 
 
@@ -260,5 +387,5 @@ img {
   position: absolute;
   right: -76px;
   top: 94px;
-  width: 260px;
+  width: 360px;
 }
