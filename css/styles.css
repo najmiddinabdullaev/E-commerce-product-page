@@ -378,12 +378,21 @@ img {
   border-color: var(--accent-color);
 }
 
+.site-header__profile-link:active{
+  opacity: 0.6;
+}
+
 .site-header__profile-avatar {
   width: 50px;
   height: 50px;
 }
 
 .site-header__card-modal {
+  display: none;
+}
+
+.site-header__card-modal--open {
+  display: block;
   position: absolute;
   right: -76px;
   top: 94px;
