@@ -308,7 +308,22 @@ img {
 /* SHOWCASE-IMG */
 
 .img-showcase__showcase {
+  position: relative;
+  z-index: 1;
   margin-bottom: 32px;
+}
+
+.img-showcase__lightbox-toggle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 15px;
+  background-color: transparent;
+  cursor: zoom-in;
 }
 
 .img-showcase__active-img {
