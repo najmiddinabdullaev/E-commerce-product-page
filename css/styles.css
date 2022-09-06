@@ -325,6 +325,22 @@ img {
   margin: 0;
   list-style: none;
   overflow: auto;
+  scrollbar-color: var(--accent-color) var(--divider-bg);
+}
+
+.img-showcase__thumbnails::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+}
+
+.img-showcase__thumbnails::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: var(--accent-color);
+}
+
+.img-showcase__thumbnails::-webkit-scrollbar-track{
+  border-radius: 5px;
+  background-color: var(--divider-bg);
 }
 
 .img-showcase__thumbnail{
