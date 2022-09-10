@@ -15,6 +15,10 @@ if (elSiteHeaderCardLink) {
   });
 }
 
+
+// IMG-SHOWACASE
+
+const elProductPageGallery = document.querySelector(`.product-page__gallery`);
 const elImgShowcaseActiveImg = document.querySelector(`.img-showcase__active-img`);
 const elsImgShowCaseTmubnailButton = document.querySelectorAll(`.js-img-showcase-thumbnail-button`);
 const elsImgThumbnail = document.querySelectorAll(`.img-showcase__thumbnail`);
@@ -49,5 +53,57 @@ if(elLightBoxToggler) {
 if(elLightBoxClose) {
   elLightBoxClose.addEventListener(`click`, function () {
     elLightBox.classList.remove(modifiers.lightBoxOpen)
+  });
+}
+
+
+// THUMBNAIL-CLICK
+
+const elImgLightboxActiveImg = elLightBox.querySelector(`.img-showcase__active-img`);
+const elsImgLightboxTmubnailButton = elLightBox.querySelectorAll(`.js-img-lightbox-thumbnail-button`);
+const elsLightboxImgThumbnail = elLightBox.querySelectorAll('.img-showcase__thumbnail');
+
+elsImgLightboxTmubnailButton.forEach(function (elButton) {
+  elButton.addEventListener('click', function () {
+    // Remove active state from all buttons
+    elsLightboxImgThumbnail.forEach(function (elImgThumbnail) {
+      elImgThumbnail.classList.remove(modifiers.imgThumbnailActive);
+    });
+
+    // Add active state to clicked button
+    elButton.parentElement.classList.add(modifiers.imgThumbnailActive);
+
+    // Update active image src accordingly
+    elImgLightboxActiveImg.src = elButton.dataset.imgShowcaseBig;
+    elImgLightboxActiveImg.srcset = `${elButton.dataset.imgShowcaseBig} 1x, ${elButton.dataset.imgShowcaseRetina} 2x`;
+  });
+});
+
+
+// Lightbox control
+const elLightboxControlPrev = elLightBox.querySelector('.js-lightbox-control-prev');
+const elLightboxControlNext = elLightBox.querySelector('.js-lightbox-control-next');
+
+if (elLightboxControlNext) {
+  elLightboxControlNext.addEventListener('click', function () {
+    // Find active li element
+    const elActiveItem = elLightBox.querySelector('.img-showcase__thumbnail--active');
+
+    // Remove active li element's styles
+    elActiveItem.classList.remove(modifiers.imgThumbnailActive);
+
+    let elNextActiveItem;
+
+    if (elActiveItem.nextElementSibling === null) {
+      elNextActiveItem = elsLightboxImgThumbnail[0];
+    } else {
+      elNextActiveItem = elActiveItem.nextElementSibling;
+    }
+
+    elNextActiveItem.classList.add(modifiers.imgThumbnailActive);
+
+    // Update active image src accordingly
+    elImgLightboxActiveImg.src = elNextActiveItem.children[0].dataset.imgShowcaseBig;
+    elImgLightboxActiveImg.srcset = `${elNextActiveItem.children[0].dataset.imgShowcaseBig} 1x, ${elNextActiveItem.children[0].dataset.imgShowcaseRetina} 2x`;
   });
 }
