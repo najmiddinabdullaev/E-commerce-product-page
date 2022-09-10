@@ -107,3 +107,27 @@ if (elLightboxControlNext) {
     elImgLightboxActiveImg.srcset = `${elNextActiveItem.children[0].dataset.imgShowcaseBig} 1x, ${elNextActiveItem.children[0].dataset.imgShowcaseRetina} 2x`;
   });
 }
+
+if (elLightboxControlPrev) {
+  elLightboxControlPrev.addEventListener('click', function () {
+    // Find active li element
+    const elActiveItem = elLightBox.querySelector('.img-showcase__thumbnail--active');
+
+    // Remove active li element's styles
+    elActiveItem.classList.remove(modifiers.imgThumbnailActive);
+
+    let elNextActiveItem;
+
+    if (elActiveItem.previousElementSibling === null) {
+      elNextActiveItem = elsLightboxImgThumbnail[elsLightboxImgThumbnail.length - 1];
+    } else {
+      elNextActiveItem = elActiveItem.previousElementSibling;
+    }
+
+    elNextActiveItem.classList.add(modifiers.imgThumbnailActive);
+
+    // Update active image src accordingly
+    elImgLightboxActiveImg.src = elNextActiveItem.children[0].dataset.imgShowcaseBig;
+    elImgLightboxActiveImg.srcset = `${elNextActiveItem.children[0].dataset.imgShowcaseBig} 1x, ${elNextActiveItem.children[0].dataset.imgShowcaseRetina} 2x`;
+  });
+}
