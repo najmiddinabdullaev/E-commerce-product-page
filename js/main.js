@@ -19,9 +19,9 @@ if (elSiteHeaderCardLink) {
 // IMG-SHOWACASE
 
 const elProductPageGallery = document.querySelector(`.product-page__gallery`);
-const elImgShowcaseActiveImg = document.querySelector(`.img-showcase__active-img`);
-const elsImgShowCaseTmubnailButton = document.querySelectorAll(`.js-img-showcase-thumbnail-button`);
-const elsImgThumbnail = document.querySelectorAll(`.img-showcase__thumbnail`);
+const elImgShowcaseActiveImg = elProductPageGallery.querySelector(`.img-showcase__active-img`);
+const elsImgShowCaseTmubnailButton = elProductPageGallery.querySelectorAll(`.js-img-showcase-thumbnail-button`);
+const elsImgThumbnail = elProductPageGallery.querySelectorAll(`.img-showcase__thumbnail`);
 
 elsImgShowCaseTmubnailButton.forEach(function (elButton) {
   elButton.addEventListener(`click`, function () {
